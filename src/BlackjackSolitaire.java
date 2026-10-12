@@ -49,4 +49,20 @@ public class BlackjackSolitaire {
         }
         return remaining;
     }
+    public int positionChoice() {
+        int position = 0;
+        boolean found = false;
+        while (!found) {
+            System.out.println("Please enter which position you would like to place this card.");
+            position = scanner.nextInt();
+            if (position > 20 || position < 1 || roundEnter[position - 1] != null) {
+                System.out.println("You have entered an invalid position.");
+                System.out.println("Please pick another position.");
+            } else {
+                found = true;
+            }
+        }
+        return position;
+    }
+
 }
