@@ -21,6 +21,7 @@ public class BlackjackSolitaire {
             }
         }
         System.out.println();
+        System.out.print("\t");
         for (int i = 10; i <= 12; i++) {
             if (roundEnter[i] == null) {
                 System.out.print((i + 1) + "\t");
@@ -29,6 +30,7 @@ public class BlackjackSolitaire {
             }
         }
         System.out.println();
+        System.out.print("\t");
         for (int i = 13; i <= 15; i++) {
             if (roundEnter[i] == null) {
                 System.out.print((i + 1) + "\t");
@@ -42,7 +44,7 @@ public class BlackjackSolitaire {
     }
     public int discardRemaining(){
         int remaining = 0;
-        for (int i = 16; i < 19; i++) {
+        for (int i = 16; i < 20; i++) {
             if (roundEnter[i] == null) {
                 remaining++;
             }
@@ -106,6 +108,7 @@ public class BlackjackSolitaire {
             return 0;
         }
     }
+
     public int calculateScore() {
         Card[] column1 = {roundEnter[0], roundEnter[5]};
         Card[] column2 = {roundEnter[1], roundEnter[6], roundEnter[10], roundEnter[13]};
@@ -120,6 +123,7 @@ public class BlackjackSolitaire {
         total = scoreHand(row1) + scoreHand(row2) + scoreHand(row3) + scoreHand(row4) + scoreHand(column1) + scoreHand(column2) + scoreHand(column3) + scoreHand(column4) + scoreHand(column5);
         return total;
     }
+
     public void play() {
         deck.shuffle();
 
