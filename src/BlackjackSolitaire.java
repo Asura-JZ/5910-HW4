@@ -51,17 +51,19 @@ public class BlackjackSolitaire {
         }
         return remaining;
     }
-    public int positionChoice() {
+    private int positionChoice() {
         int position = 0;
-        boolean found = false;
-        while (!found) {
+        while (position == 0) {
             System.out.println("Please enter which position you would like to place this card.");
-            position = scanner.nextInt();
-            if (position > 20 || position < 1 || roundEnter[position - 1] != null) {
+            String input = scanner.next();
+            for (int i = 1; i <= 20; i++) {
+                if (input.equals("" + i) && roundEnter[i - 1] == null) {
+                    position = i;
+                }
+            }
+            if (position == 0) {
                 System.out.println("You have entered an invalid position.");
                 System.out.println("Please pick another position.");
-            } else {
-                found = true;
             }
         }
         return position;
@@ -136,9 +138,9 @@ public class BlackjackSolitaire {
         }
 
         displayGrid();
-        System.out.println("All 16 places are filled. Game over!");
+        System.out.println("All 16 places are filled. Calculating final score...");
         int score = calculateScore();
-        System.out.println("You scored " + score + " points.");
+        System.out.println("Game over! You scored " + score + " points.");
     }
 
 }

@@ -14,7 +14,7 @@ public class Card {
     }
     public int getValue(){
         int value = 0;
-        if (rank.equals("K")||rank.equals("Q")||rank.equals("J")){
+        if (rank.equals("10")||rank.equals("K")||rank.equals("Q")||rank.equals("J")){
             value = 10;
         }else if (rank.equals("A")){
             value = 1; //Value A=11 is a separate case do deal with
@@ -41,7 +41,7 @@ public class Card {
     public boolean isAce(){
         return rank.equals("A");
     }
-    public String display(){
+    public String toString(){
         return rank + suit;
     }
 
