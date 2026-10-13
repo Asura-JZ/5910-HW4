@@ -120,5 +120,21 @@ public class BlackjackSolitaire {
         total = scoreHand(row1) + scoreHand(row2) + scoreHand(row3) + scoreHand(row4) + scoreHand(column1) + scoreHand(column2) + scoreHand(column3) + scoreHand(column4) + scoreHand(column5);
         return total;
     }
+    public void play() {
+        deck.shuffle();
+
+        while (!gameOver()) {
+            Card card = deck.dealCard();
+            displayGrid();
+            System.out.println("Your card is: " + card);
+            int position = positionChoice();
+            placeCard(card, position);
+        }
+
+        displayGrid();
+        System.out.println("All 16 places are filled. Game over!");
+        int score = calculateScore();
+        System.out.println("You scored " + score + " points.");
+    }
 
 }
