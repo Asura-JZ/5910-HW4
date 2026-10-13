@@ -6,20 +6,23 @@ public class Card {
         this.rank = rank;
         this.suit = suit;
     }
+
     public String getRank() {
         return rank;
     }
-    public String getSuit(){
+
+    public String getSuit() {
         return suit;
     }
-    public int getValue(){
+
+    public int getValue() {
         int value = 0;
-        if (rank.equals("10")||rank.equals("K")||rank.equals("Q")||rank.equals("J")){
+        if (rank.equals("10") || rank.equals("K") || rank.equals("Q") || rank.equals("J")) {
             value = 10;
-        }else if (rank.equals("A")){
-            value = 1; //Value A=11 is a separate case do deal with
-        }else if (rank.equals("9")) {
-        value = 9;
+        } else if (rank.equals("A")) {
+            value = 1; // An ace counting as 11 is handled when a hand is scored.
+        } else if (rank.equals("9")) {
+            value = 9;
         } else if (rank.equals("8")) {
             value = 8;
         } else if (rank.equals("7")) {
@@ -38,11 +41,11 @@ public class Card {
         return value;
     }
 
-    public boolean isAce(){
+    public boolean isAce() {
         return rank.equals("A");
     }
-    public String toString(){
+
+    public String toString() {
         return rank + suit;
     }
-
 }
